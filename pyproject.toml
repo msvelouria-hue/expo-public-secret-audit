@@ -9,6 +9,7 @@ description = "Scan Expo env files for risky EXPO_PUBLIC secret names."
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [{ name = "Sabrina Olliphant" }]
+license = { text = "MIT" }
 dependencies = []
 
 [project.scripts]
