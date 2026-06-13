@@ -4,12 +4,9 @@ A tiny Python CLI that scans Expo `.env` files for risky `EXPO_PUBLIC_*` names t
 
 Expo bundles `EXPO_PUBLIC_*` values into the client app. That is fine for Firebase client config and OAuth client IDs, but dangerous for provider secrets such as OpenAI, Vuxo, PhotoRoom, Stripe secret keys, tokens, and private API keys.
 
-## What This Shows
+## Why I Made This
 
-- Clear, limited scope
-- No dependencies
-- Testable scanner logic
-- Useful automation around a real mobile-app security footgun
+I ran into the practical question of which Expo environment variables are safe to expose. This tool captures that lesson in a small, testable script.
 
 ## Local Development
 
@@ -40,4 +37,4 @@ Everything else with secret-like words such as `SECRET`, `TOKEN`, `PRIVATE`, `OP
 
 ## License
 
-MIT
+No open-source license has been added.
