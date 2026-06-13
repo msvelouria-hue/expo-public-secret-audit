@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "expo-public-secret-audit"
+version = "0.1.0"
+description = "Scan Expo env files for risky EXPO_PUBLIC secret names."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Sabrina Olliphant" }]
+dependencies = []
+
+[project.scripts]
+expo-public-secret-audit = "expo_public_secret_audit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
