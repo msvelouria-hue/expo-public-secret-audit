@@ -37,4 +37,4 @@ Everything else with secret-like words such as `SECRET`, `TOKEN`, `PRIVATE`, `OP
 
 ## License
 
-MIT. In plain terms, people can use, copy, modify, and share this small example project as long as they keep the license notice. It does not come with a warranty.
+MIT.
