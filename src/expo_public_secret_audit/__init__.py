@@ -1,4 +1,4 @@
-"""Audit Expo env files for public-prefixed secret names."""
+"""Audit Expo env and config files for public secret exposure."""
 
 from .scanner import Finding, scan_text
 

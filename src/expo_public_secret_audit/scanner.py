@@ -5,6 +5,7 @@ import re
 
 
 PUBLIC_ASSIGNMENT = re.compile(r"^\s*(EXPO_PUBLIC_[A-Z0-9_]+)\s*=")
+GOOGLE_API_KEY_VALUE = re.compile(r"\bAIza[0-9A-Za-z_-]{20,}\b")
 
 ALLOWED_PUBLIC_NAMES = {
     "EXPO_PUBLIC_FIREBASE_API_KEY",
@@ -52,6 +53,19 @@ def scan_text(text: str, *, source: str = "<text>") -> list[Finding]:
     for line_number, line in enumerate(text.splitlines(), start=1):
         if line.lstrip().startswith("#"):
             continue
+
+        if GOOGLE_API_KEY_VALUE.search(line):
+            findings.append(
+                Finding(
+                    source=source,
+                    line=line_number,
+                    name="GOOGLE_API_KEY_VALUE",
+                    reason=(
+                        "Google/Firebase API-key-looking values should not be "
+                        "committed to Expo app config"
+                    ),
+                )
+            )
 
         match = PUBLIC_ASSIGNMENT.match(line)
         if not match:

@@ -9,7 +9,7 @@ from .scanner import scan_text
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Scan Expo env files for risky EXPO_PUBLIC secret names."
+        description="Scan Expo env/config files for risky public secrets."
     )
     parser.add_argument("files", nargs="+", type=Path)
     args = parser.parse_args()

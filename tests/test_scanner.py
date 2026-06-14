@@ -33,6 +33,23 @@ class ScannerTests(unittest.TestCase):
         self.assertEqual(findings[0].line, 3)
         self.assertEqual(findings[0].name, "EXPO_PUBLIC_OPENAI_API_KEY")
 
+    def test_scan_text_flags_google_api_key_values_in_app_config(self) -> None:
+        fake_key = "AI" + "za" + ("A" * 35)
+        findings = scan_text(
+            "\n".join(
+                [
+                    '{',
+                    f'  "FIREBASE_API_KEY": "{fake_key}",',
+                    '}',
+                ]
+            ),
+            source="app.json",
+        )
+
+        self.assertEqual(len(findings), 1)
+        self.assertEqual(findings[0].line, 2)
+        self.assertEqual(findings[0].name, "GOOGLE_API_KEY_VALUE")
+
 
 if __name__ == "__main__":
     unittest.main()
